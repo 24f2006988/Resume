@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hrisit Roy — Resume</title>
+<style>
+  @page { size: A4; margin: 11mm 13mm; }
+  :root { --body: 9.1pt; --lead: 1.26; }
+  * { box-sizing: border-box; }
+  html { background: #e9e9e9; }
+  body {
+    font-family: "Charter", "Bitstream Charter", "Charis SIL", Georgia, "Times New Roman", serif;
+    font-size: var(--body); line-height: var(--lead); color: #000; margin: 0;
+  }
+  .page { width: 210mm; min-height: 297mm; padding: 11mm 13mm; margin: 16px auto; background: #fff; }
+
+  .name { text-align: center; font-size: 19pt; font-variant: small-caps; letter-spacing: .6pt; margin: 0 0 3pt; }
+  .contact { text-align: center; font-size: 8.5pt; margin-bottom: 7pt; }
+  .contact span { margin: 0 5pt; white-space: nowrap; }
+  .contact a { color: #000; text-decoration: none; }
+
+  h2 { font-size: 9.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: .3pt;
+       margin: 7pt 0 2pt; padding-bottom: 1pt; border-bottom: .8pt solid #000; }
+  p.summary { margin: 3pt 0 0; text-align: justify; }
+
+  .entry { margin-top: 4.5pt; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
+  .row .left { flex: 1 1 auto; }
+  .row .right { flex: 0 0 auto; text-align: right; }
+  .title { font-weight: bold; }
+  .title a { color: #000; text-decoration: none; }
+  .subtitle { font-style: italic; font-size: 8.7pt; }
+  .date { font-size: 8.7pt; }
+  .place { font-style: italic; font-size: 8.7pt; }
+
+  ul { margin: 1.5pt 0 0; padding-left: 12pt; }
+  li { margin-bottom: .8pt; text-align: justify; }
+  .tech { font-style: italic; font-size: 8.5pt; margin-top: 1.5pt; }
+
+  .skillrow { display: flex; gap: 8pt; margin-bottom: 1.4pt; }
+  .skilllabel { flex: 0 0 28%; font-weight: bold; }
+  .skillval { flex: 1 1 auto; }
+
+  @media print { html { background: #fff; } .page { margin: 0; padding: 0; width: auto; min-height: 0; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="name">Hrisit Roy</div>
+  <div class="contact">
+    <span>+91-XXXXXXXXXX</span>
+    <span>hrisitroy4@gmail.com</span>
+    <span><a href="https://www.linkedin.com/in/hrisit-roy-93aa56413/">LinkedIn</a></span>
+    <span><a href="https://github.com/24f2006988">GitHub</a></span>
+    <span><a href="https://leetcode.com/u/xalphanos/">LeetCode</a></span>
+    <span>Puducherry, India</span>
+  </div>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    Computer Science undergraduate specializing in <b>AI/ML</b>, with hands-on experience building
+    <b>REST APIs</b> in <b>FastAPI</b> and <b>Flask</b>, designing relational schemas in PostgreSQL and SQLite,
+    and shipping <b>end-to-end ML pipelines</b> with Scikit-learn and PyTorch. Comfortable across
+    <b>ETL and feature engineering</b>, supervised and unsupervised modelling, and <b>multi-object tracking</b>,
+    with a habit of reporting evaluation metrics and failure modes honestly rather than headline accuracy alone.
+    Seeking data science and ML engineering internship roles.
+  </p>
+
+  <h2>Projects</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title">BattleSight AR — Multi-Camera Detection &amp; Tracking</span> &nbsp;|&nbsp; <span class="subtitle">Independent Research Project</span></div>
+      <div class="right date">2026 – Present</div>
+    </div>
+    <ul>
+      <li><b>Built</b> a multi-sensor fusion pipeline over a dual-camera setup (nadir drone + ground camera) with sensor-geometry <b>occlusion testing</b>, transport-delay simulation, nearest-neighbour association, <b>Kalman filtering</b> and per-target AR overlay projection.</li>
+      <li><b>Designed</b> a controlled study on multi-camera pedestrian tracking over the <b>WILDTRACK</b> dataset: calibration validation, cached <b>YOLO</b> detection, homography foot-point projection with noise characterization, and world-space tracking with <b>Hungarian assignment</b>.</li>
+      <li><b>Evaluating</b> tracking quality with <b>TrackEval</b> (HOTA / MOTA / IDF1) in a three-way baseline comparison across all seven camera views.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Python, PyTorch, YOLO, OpenCV, Kalman filtering, Hungarian algorithm, TrackEval, multi-view geometry</div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/rain-prediction-ml-pipeline">Rain Prediction — Tabular ML Pipeline</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
+      <div class="right date">2026</div>
+    </div>
+    <ul>
+      <li><b>Built</b> an end-to-end classification pipeline over a <b>7,557-row</b> Melbourne-area subset of the weatherAUS dataset, deriving seasonal features from raw dates and routing mixed numeric and categorical columns through one shared preprocessing pipeline.</li>
+      <li><b>Tuned</b> Logistic Regression and Random Forest under <b>cross-validated F1</b>; Random Forest reached <b>84.3% test accuracy, 0.607 F1 and 0.889 ROC-AUC</b>, beating the linear baseline on both F1 and AUC.</li>
+      <li><b>Analysed</b> confusion matrices and feature importances to explain model behaviour, and documented class imbalance as the reason F1 outweighs raw accuracy on this task.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Python, Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter</div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/SpecDrivenDevelopment-project">Reports API — Spec-Driven FastAPI Service</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
+      <div class="right date">2026</div>
+    </div>
+    <ul>
+      <li><b>Implemented</b> a paginated <b>REST</b> endpoint supporting status filtering, ISO date-range bounds, multi-field sorting and offset/limit pagination capped at 200 rows per page, plus a <b>/health</b> liveness probe.</li>
+      <li><b>Separated</b> internal and public <b>Pydantic</b> models so the response schema stays decoupled from storage, and split the query layer from the HTTP layer into dedicated modules.</li>
+      <li><b>Packaged</b> the service as an installable Python module served under <b>Uvicorn</b>, built to a written specification rather than ad-hoc.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Python, FastAPI, Pydantic, Uvicorn, REST API design, spec-driven development</div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title">Trekking Management Application</span> &nbsp;|&nbsp; <span class="subtitle">IIT Madras MAD-1 Course Project</span></div>
+      <div class="right date">2026</div>
+    </div>
+    <ul>
+      <li><b>Developed</b> a multi-role Flask web application serving <b>Admin, Staff and Trekker</b> roles across five <b>blueprints</b>, with session-based authentication and <b>scrypt</b> password hashing.</li>
+      <li><b>Modelled</b> the relational schema in <b>SQLAlchemy</b> over SQLite and built server-rendered <b>Jinja2</b> views on a shared Bootstrap 5 layout, with full CRUD, search and filtering across trek, booking and user entities.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Flask, SQLAlchemy, SQLite, Jinja2, Bootstrap 5, Werkzeug, JavaScript</div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/customer-segmentation-kmeans">Customer Segmentation with K-Means</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
+      <div class="right date">2026</div>
+    </div>
+    <ul>
+      <li><b>Clustered</b> 850 customers over eight scaled demographic and financial features, sweeping <b>k = 2–6</b> and selecting k = 4 by <b>silhouette score</b> instead of by visual inspection.</li>
+      <li><b>Interpreted</b> segments using <b>PCA</b> projection and a cluster-mean heatmap, converting numeric labels into readable customer profiles.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Scikit-learn, K-Means, PCA, silhouette analysis, Pandas, Matplotlib</div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skillrow"><div class="skilllabel">Programming Languages :</div><div class="skillval">Python, C++, Java, JavaScript, SQL, HTML, CSS</div></div>
+  <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Pydantic, Uvicorn, REST API design, async programming, session auth &amp; RBAC</div></div>
+  <div class="skillrow"><div class="skilllabel">Machine Learning :</div><div class="skillval">Scikit-learn, preprocessing pipelines, cross-validation, Logistic &amp; Linear Regression, Random Forest, Gradient Boosting, Isolation Forest, K-Means, PCA; evaluation via F1, ROC-AUC, confusion matrix, MAE, MSE, R²</div></div>
+  <div class="skillrow"><div class="skilllabel">Deep Learning :</div><div class="skillval">PyTorch, TorchVision, CNNs, custom Dataset &amp; DataLoader, YOLO object detection, MNIST / FashionMNIST</div></div>
+  <div class="skillrow"><div class="skilllabel">Data &amp; Databases :</div><div class="skillval">PostgreSQL, SQLite, SQLAlchemy, Pandas, NumPy, CSV ETL, data cleaning, feature engineering</div></div>
+  <div class="skillrow"><div class="skilllabel">Visualization &amp; Frontend :</div><div class="skillval">Matplotlib, Chart.js, Jinja2, Bootstrap 5, Tailwind CSS</div></div>
+  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, GCP, Power BI</div></div>
+
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title">Indian Institute of Technology Madras</span> &nbsp;|&nbsp; <span class="place">Online Degree Programme</span></div>
+      <div class="right date">2024 – Present</div>
+    </div>
+    <div class="row">
+      <div class="left subtitle">BS in Data Science and Applications — Diploma Level</div>
+      <div class="right date">CGPA : 8.6 / 10</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title">Pondicherry University</span> &nbsp;|&nbsp; <span class="place">Puducherry, India</span></div>
+      <div class="right date">2024 – 2028</div>
+    </div>
+    <div class="row">
+      <div class="left subtitle">B.Tech in Computer Science &amp; Engineering — Specialization in Artificial Intelligence &amp; Machine Learning</div>
+      <div class="right date">CGPA : 8.3 / 10</div>
+    </div>
+  </div>
+
+  <h2>Certifications</h2>
+  <div class="skillrow"><div class="skilllabel">IIT Madras :</div><div class="skillval">Mathematical Foundations of Machine Learning; Deploying ML Apps with GCP; Interactive Dashboards with Power BI; Git &amp; GitHub Hands-on</div></div>
+  <div class="skillrow"><div class="skilllabel">Coursera :</div><div class="skillval">Deep Learning &amp; Neural Networks with Keras; Introduction to Data Analytics; Introduction to Software Engineering</div></div>
+  <div class="skillrow"><div class="skilllabel">Kaggle :</div><div class="skillval">Intro to Machine Learning; Pandas</div></div>
+
+</div>
+</body>
+</html>
