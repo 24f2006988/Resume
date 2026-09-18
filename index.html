@@ -62,12 +62,25 @@
     Computer Science undergraduate specializing in <b>AI/ML</b>, with hands-on experience building
     <b>REST APIs</b> in <b>FastAPI</b> and <b>Flask</b>, designing relational schemas in PostgreSQL and SQLite,
     and shipping <b>end-to-end ML pipelines</b> with Scikit-learn and PyTorch. Comfortable across
-    <b>ETL and feature engineering</b>, supervised and unsupervised modelling, and <b>multi-object tracking</b>,
+    <b>ETL and feature engineering</b>, supervised and unsupervised modelling, <b>retrieval and RAG systems</b>, and <b>multi-object tracking</b>,
     with a habit of reporting evaluation metrics and failure modes honestly rather than headline accuracy alone.
     Seeking data science and ML engineering internship roles.
   </p>
 
   <h2>Projects</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title">Ask My Documents &mdash; Local RAG with Hybrid Retrieval</span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
+      <div class="right date">2026</div>
+    </div>
+    <ul>
+      <li><b>Built</b> a fully local retrieval-augmented generation system over <b>342 documents / 2,698 chunks</b>, blending dense cosine search over <b>FAISS</b> with a <b>BM25 ranker written from scratch</b> &mdash; five dependencies, no LangChain, no vector database and no hosted API.</li>
+      <li><b>Evaluated</b> retrieval against a hand-labelled <b>50-question</b> set, sweeping chunk size and fusion weight at a fixed context budget: hybrid reached <b>hit@1 0.84 and MRR 0.902</b> versus 0.78 / 0.868 for embeddings alone, with <b>36 of 50 questions</b> containing a chunk that only the keyword half surfaced.</li>
+      <li><b>Exposed</b> a <b>33% false-refusal rate</b> that the grounding metric had been scoring as success, cut it to <b>2%</b> by measuring three prompts head-to-head, and rejected LLM-as-judge after it scored <b>2/4</b> on hand-labelled cases.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Python, FAISS, BM25, hybrid retrieval, Flask, Ollama, sentence-transformers, NumPy, Docker, retrieval evaluation (hit@k, MRR)</div>
+  </div>
 
   <div class="entry">
     <div class="row">
@@ -136,10 +149,11 @@
   <div class="skillrow"><div class="skilllabel">Programming Languages :</div><div class="skillval">Python, C++, Java, JavaScript, SQL, HTML, CSS</div></div>
   <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Pydantic, Uvicorn, REST API design, async programming, session auth &amp; RBAC</div></div>
   <div class="skillrow"><div class="skilllabel">Machine Learning :</div><div class="skillval">Scikit-learn, preprocessing pipelines, cross-validation, Logistic &amp; Linear Regression, Random Forest, Gradient Boosting, Isolation Forest, K-Means, PCA; evaluation via F1, ROC-AUC, confusion matrix, MAE, MSE, R²</div></div>
+  <div class="skillrow"><div class="skilllabel">Retrieval &amp; LLM Systems :</div><div class="skillval">RAG pipelines, dense embeddings, BM25, hybrid score fusion, FAISS, chunking strategies, prompt evaluation, Ollama, sentence-transformers; retrieval metrics including hit@k and MRR</div></div>
   <div class="skillrow"><div class="skilllabel">Deep Learning :</div><div class="skillval">PyTorch, TorchVision, CNNs, custom Dataset &amp; DataLoader, YOLO object detection, MNIST / FashionMNIST</div></div>
   <div class="skillrow"><div class="skilllabel">Data &amp; Databases :</div><div class="skillval">PostgreSQL, SQLite, SQLAlchemy, Pandas, NumPy, CSV ETL, data cleaning, feature engineering</div></div>
   <div class="skillrow"><div class="skilllabel">Visualization &amp; Frontend :</div><div class="skillval">Matplotlib, Chart.js, Jinja2, Bootstrap 5, Tailwind CSS</div></div>
-  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, GCP, Power BI</div></div>
+  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, GCP, Power BI, Docker, Hugging Face Spaces</div></div>
 
   <h2>Education</h2>
 
