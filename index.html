@@ -40,6 +40,7 @@
   .skillrow { display: flex; gap: 8pt; margin-bottom: 1.4pt; }
   .skilllabel { flex: 0 0 28%; font-weight: bold; }
   .skillval { flex: 1 1 auto; }
+  .skillval a { color: #000; text-decoration: underline; text-decoration-thickness: .4pt; text-underline-offset: 1.5pt; }
 
   @media print { html { background: #fff; } .page { margin: 0; padding: 0; width: auto; min-height: 0; } }
 </style>
@@ -49,7 +50,7 @@
 
   <div class="name">Hrisit Roy</div>
   <div class="contact">
-    <span>+91-XXXXXXXXXX</span>
+    <span>+91-9474126007</span>
     <span>hrisitroy4@gmail.com</span>
     <span><a href="https://www.linkedin.com/in/hrisit-roy-93aa56413/">LinkedIn</a></span>
     <span><a href="https://github.com/24f2006988">GitHub</a></span>
@@ -62,12 +63,26 @@
     Computer Science undergraduate specializing in <b>AI/ML</b>, with hands-on experience building
     <b>REST APIs</b> in <b>FastAPI</b> and <b>Flask</b>, designing relational schemas in PostgreSQL and SQLite,
     and shipping <b>end-to-end ML pipelines</b> with Scikit-learn and PyTorch. Comfortable across
-    <b>ETL and feature engineering</b>, supervised and unsupervised modelling, <b>retrieval and RAG systems</b>, and <b>multi-object tracking</b>,
+    <b>real-time object detection and tracking</b> with TensorRT deployment, <b>retrieval and RAG systems</b>, and <b>ETL and feature engineering</b>,
     with a habit of reporting evaluation metrics and failure modes honestly rather than headline accuracy alone.
     Seeking data science and ML engineering internship roles.
   </p>
 
   <h2>Projects</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/detecsight-sar">DetecSight &mdash; Real-Time Person Detection for Drone &amp; Helmet Cameras</a></span> &nbsp;|&nbsp; <span class="subtitle">SIH project, continued solo</span></div>
+      <div class="right date">2026 &ndash; Present</div>
+    </div>
+    <ul>
+      <li><b>Built</b> a detection and tracking service on <b>YOLO26</b> trained over VisDrone, WiderPerson, AerialPerson and SARD, exported to <b>TensorRT FP16</b> (<b>6.95 ms/frame</b>, RTX 4060 Laptop) and served via <b>FastAPI</b> REST, <b>WebSocket</b> and <b>WebRTC</b> with per-feed trackers; personnel <b>mAP50 0.706</b>, recall reported by target size (<b>0.940</b> &gt;96 px, <b>0.187</b> &lt;16 px).</li>
+      <li><b>Traced</b> 54,658 phantom vehicle boxes to an FPV <b>HUD overlay</b>, not a data gap, and wrote a filter dropping screen-fixed boxes while <b>camera-motion compensation</b> shows the scene moving: <b>&minus;87.7%</b> phantoms, control clip unchanged.</li>
+      <li><b>Isolated pose</b> as the cause of missed prone people from the air by ruling out resolution, IR palette, viewpoint and augmentation in turn; blending in SARD lifted recall <b>0.143 &rarr; 0.673</b> (570 test images, 0.10 conf. floor).</li>
+      <li><b>Gated</b> checkpoint promotion on a regression script, not headline mAP, which retired a drone-specialised model and rejected <b>INT8</b> (&minus;4 pt mAP50 for 2.7 ms); thresholds set on <b>F2</b>; <b>22 property tests</b> in <b>GitHub Actions CI</b>; <b>Docker</b> image.</li>
+    </ul>
+    <div class="tech"><b>Technologies / Skills Used:</b> Python, PyTorch, YOLO26, TensorRT, OpenCV, FastAPI, WebRTC (aiortc), pytest, GitHub Actions, Docker</div>
+  </div>
 
   <div class="entry">
     <div class="row">
@@ -82,33 +97,7 @@
     <div class="tech"><b>Technologies / Skills Used:</b> Python, FAISS, BM25, hybrid retrieval, Flask, Ollama, sentence-transformers, NumPy, Docker, retrieval evaluation (hit@k, MRR)</div>
   </div>
 
-  <div class="entry">
-    <div class="row">
-      <div class="left"><span class="title">BattleSight AR — Multi-Camera Detection &amp; Tracking</span> &nbsp;|&nbsp; <span class="subtitle">Independent Research Project</span></div>
-      <div class="right date">2026 – Present</div>
-    </div>
-    <ul>
-      <li><b>Built</b> a multi-sensor fusion pipeline over a dual-camera setup (nadir drone + ground camera) with sensor-geometry <b>occlusion testing</b>, transport-delay simulation, nearest-neighbour association, <b>Kalman filtering</b> and per-target AR overlay projection.</li>
-      <li><b>Designed</b> a controlled study on multi-camera pedestrian tracking over the <b>WILDTRACK</b> dataset: calibration validation, cached <b>YOLO</b> detection, homography foot-point projection with noise characterization, and world-space tracking with <b>Hungarian assignment</b>.</li>
-      <li><b>Evaluating</b> tracking quality with <b>TrackEval</b> (HOTA / MOTA / IDF1) in a three-way baseline comparison across all seven camera views.</li>
-    </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Python, PyTorch, YOLO, OpenCV, Kalman filtering, Hungarian algorithm, TrackEval, multi-view geometry</div>
-  </div>
-
-  <div class="entry">
-    <div class="row">
-      <div class="left"><span class="title"><a href="https://github.com/24f2006988/rain-prediction-ml-pipeline">Rain Prediction — Tabular ML Pipeline</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
-      <div class="right date">2026</div>
-    </div>
-    <ul>
-      <li><b>Built</b> an end-to-end classification pipeline over a <b>7,557-row</b> Melbourne-area subset of the weatherAUS dataset, deriving seasonal features from raw dates and routing mixed numeric and categorical columns through one shared preprocessing pipeline.</li>
-      <li><b>Tuned</b> Logistic Regression and Random Forest under <b>cross-validated F1</b>; Random Forest reached <b>84.3% test accuracy, 0.607 F1 and 0.889 ROC-AUC</b>, beating the linear baseline on both F1 and AUC.</li>
-      <li><b>Analysed</b> confusion matrices and feature importances to explain model behaviour, and documented class imbalance as the reason F1 outweighs raw accuracy on this task.</li>
-    </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Python, Scikit-learn, Pandas, NumPy, Matplotlib, Jupyter</div>
-  </div>
-
-  <div class="entry">
+      <div class="entry">
     <div class="row">
       <div class="left"><span class="title"><a href="https://github.com/24f2006988/SpecDrivenDevelopment-project">Reports API — Spec-Driven FastAPI Service</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
       <div class="right date">2026</div>
@@ -133,27 +122,15 @@
     <div class="tech"><b>Technologies / Skills Used:</b> Flask, SQLAlchemy, SQLite, Jinja2, Bootstrap 5, Werkzeug, JavaScript</div>
   </div>
 
-  <div class="entry">
-    <div class="row">
-      <div class="left"><span class="title"><a href="https://github.com/24f2006988/customer-segmentation-kmeans">Customer Segmentation with K-Means</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
-      <div class="right date">2026</div>
-    </div>
-    <ul>
-      <li><b>Clustered</b> 850 customers over eight scaled demographic and financial features, sweeping <b>k = 2–6</b> and selecting k = 4 by <b>silhouette score</b> instead of by visual inspection.</li>
-      <li><b>Interpreted</b> segments using <b>PCA</b> projection and a cluster-mean heatmap, converting numeric labels into readable customer profiles.</li>
-    </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Scikit-learn, K-Means, PCA, silhouette analysis, Pandas, Matplotlib</div>
-  </div>
-
-  <h2>Skills</h2>
+    <h2>Skills</h2>
   <div class="skillrow"><div class="skilllabel">Programming Languages :</div><div class="skillval">Python, C++, Java, JavaScript, SQL, HTML, CSS</div></div>
-  <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Pydantic, Uvicorn, REST API design, async programming, session auth &amp; RBAC</div></div>
+  <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Pydantic, Uvicorn, REST API design, WebSocket &amp; WebRTC streaming, async programming, session auth &amp; RBAC</div></div>
   <div class="skillrow"><div class="skilllabel">Machine Learning :</div><div class="skillval">Scikit-learn, preprocessing pipelines, cross-validation, Logistic &amp; Linear Regression, Random Forest, Gradient Boosting, Isolation Forest, K-Means, PCA; evaluation via F1, ROC-AUC, confusion matrix, MAE, MSE, R²</div></div>
   <div class="skillrow"><div class="skilllabel">Retrieval &amp; LLM Systems :</div><div class="skillval">RAG pipelines, dense embeddings, BM25, hybrid score fusion, FAISS, chunking strategies, prompt evaluation, Ollama, sentence-transformers; retrieval metrics including hit@k and MRR</div></div>
-  <div class="skillrow"><div class="skilllabel">Deep Learning :</div><div class="skillval">PyTorch, TorchVision, CNNs, custom Dataset &amp; DataLoader, YOLO object detection, MNIST / FashionMNIST</div></div>
+  <div class="skillrow"><div class="skilllabel">Deep Learning :</div><div class="skillval">PyTorch, TorchVision, CNNs, custom Dataset &amp; DataLoader, Ultralytics YOLO training &amp; fine-tuning, TensorRT FP16 export, OpenCV, mAP / size-stratified recall evaluation</div></div>
   <div class="skillrow"><div class="skilllabel">Data &amp; Databases :</div><div class="skillval">PostgreSQL, SQLite, SQLAlchemy, Pandas, NumPy, CSV ETL, data cleaning, feature engineering</div></div>
   <div class="skillrow"><div class="skilllabel">Visualization &amp; Frontend :</div><div class="skillval">Matplotlib, Chart.js, Jinja2, Bootstrap 5, Tailwind CSS</div></div>
-  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, GCP, Power BI, Docker, Hugging Face Spaces</div></div>
+  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, pytest, GitHub Actions CI, Ruff, Docker, GCP, Power BI, Hugging Face Spaces</div></div>
 
   <h2>Education</h2>
 
@@ -180,8 +157,9 @@
   </div>
 
   <h2>Certifications</h2>
+  <div class="skillrow"><div class="skilllabel">IBM &middot; Coursera :</div><div class="skillval"><b><a href="https://coursera.org/share/7452333decb22f359557335d4036ea99">IBM AI Engineering Professional Certificate</a></b> (13 courses, 2026) &mdash; Machine Learning with Python; Deep Learning with Keras, TensorFlow &amp; PyTorch; Generative AI &amp; LLMs: transformers, fine-tuning, RAG &amp; LangChain; AI Capstone Project</div></div>
+  <div class="skillrow"><div class="skilllabel">Coursera :</div><div class="skillval">Introduction to Data Analytics; Introduction to Software Engineering</div></div>
   <div class="skillrow"><div class="skilllabel">IIT Madras :</div><div class="skillval">Mathematical Foundations of Machine Learning; Deploying ML Apps with GCP; Interactive Dashboards with Power BI; Git &amp; GitHub Hands-on</div></div>
-  <div class="skillrow"><div class="skilllabel">Coursera :</div><div class="skillval">Deep Learning &amp; Neural Networks with Keras; Introduction to Data Analytics; Introduction to Software Engineering</div></div>
   <div class="skillrow"><div class="skilllabel">Kaggle :</div><div class="skillval">Intro to Machine Learning; Pandas</div></div>
 
 </div>
