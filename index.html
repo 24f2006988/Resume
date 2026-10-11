@@ -68,17 +68,22 @@
     Seeking data science and ML engineering internship roles.
   </p>
 
+  <h2>Achievements</h2>
+  <ul>
+    <li><b>1st Place, PromptWars &times; The Prompt Arena</b> (Pondicherry University, Oct 2026) &mdash; 8-hour Build With AI hackathon; won with <b>Shark Tank Simulator</b> (below).</li>
+    <li><b>Rank 154</b> (team) out of <b>90,000+ participants</b>, <b>Amazon ML Challenge 2026</b> &mdash; 72-hour national ML hackathon on an Amazon dataset.</li>
+  </ul>
+
   <h2>Projects</h2>
 
   <div class="entry">
     <div class="row">
-      <div class="left"><span class="title"><a href="https://github.com/24f2006988/detecsight-sar">DetecSight &mdash; Real-Time Person Detection for Drone &amp; Helmet Cameras</a></span> &nbsp;|&nbsp; <span class="subtitle">SIH project, continued solo</span></div>
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/Detecsight">DetecSight &mdash; Real-Time Person Detection for Drone &amp; Helmet Cameras</a></span> &nbsp;|&nbsp; <span class="subtitle">SIH project, continued solo</span></div>
       <div class="right date">2026 &ndash; Present</div>
     </div>
     <ul>
-      <li><b>Built</b> a detection and tracking service on <b>YOLO26</b> trained over VisDrone, WiderPerson, AerialPerson and SARD, exported to <b>TensorRT FP16</b> (<b>6.95 ms/frame</b>, RTX 4060 Laptop) and served via <b>FastAPI</b> REST, <b>WebSocket</b> and <b>WebRTC</b> with per-feed trackers; personnel <b>mAP50 0.706</b>, recall reported by target size (<b>0.940</b> &gt;96 px, <b>0.187</b> &lt;16 px).</li>
+      <li><b>Built</b> a detection and tracking service on <b>YOLO26</b> trained over VisDrone, WiderPerson, AerialPerson and SARD, exported to <b>TensorRT FP16</b> (<b>~10.5 ms/frame</b>, laptop GPU) and served via <b>FastAPI</b> REST, <b>WebSocket</b> and <b>WebRTC</b> with per-feed trackers; personnel <b>mAP50 0.706</b>, recall reported by target size (<b>0.940</b> &gt;96 px, <b>0.187</b> &lt;16 px).</li>
       <li><b>Traced</b> 54,658 phantom vehicle boxes to an FPV <b>HUD overlay</b>, not a data gap, and wrote a filter dropping screen-fixed boxes while <b>camera-motion compensation</b> shows the scene moving: <b>&minus;87.7%</b> phantoms, control clip unchanged.</li>
-      <li><b>Isolated pose</b> as the cause of missed prone people from the air by ruling out resolution, IR palette, viewpoint and augmentation in turn; blending in SARD lifted recall <b>0.143 &rarr; 0.673</b> (570 test images, 0.10 conf. floor).</li>
       <li><b>Gated</b> checkpoint promotion on a regression script, not headline mAP, which retired a drone-specialised model and rejected <b>INT8</b> (&minus;4 pt mAP50 for 2.7 ms); thresholds set on <b>F2</b>; <b>22 property tests</b> in <b>GitHub Actions CI</b>; <b>Docker</b> image.</li>
     </ul>
     <div class="tech"><b>Technologies / Skills Used:</b> Python, PyTorch, YOLO26, TensorRT, OpenCV, FastAPI, WebRTC (aiortc), pytest, GitHub Actions, Docker</div>
@@ -86,51 +91,47 @@
 
   <div class="entry">
     <div class="row">
-      <div class="left"><span class="title">Ask My Documents &mdash; Local RAG with Hybrid Retrieval</span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
-      <div class="right date">2026</div>
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/shark-tank-simulator">Shark Tank Simulator &mdash; AI Investor Panel for Pitch Practice</a></span> &nbsp;|&nbsp; <span class="subtitle">PromptWars 2026, 1st Place</span></div>
+      <div class="right date">Oct 2026</div>
     </div>
     <ul>
-      <li><b>Built</b> a fully local retrieval-augmented generation system over <b>342 documents / 2,698 chunks</b>, blending dense cosine search over <b>FAISS</b> with a <b>BM25 ranker written from scratch</b> &mdash; five dependencies, no LangChain, no vector database and no hosted API.</li>
-      <li><b>Evaluated</b> retrieval against a hand-labelled <b>50-question</b> set, sweeping chunk size and fusion weight at a fixed context budget: hybrid reached <b>hit@1 0.84 and MRR 0.902</b> versus 0.78 / 0.868 for embeddings alone, with <b>36 of 50 questions</b> containing a chunk that only the keyword half surfaced.</li>
-      <li><b>Exposed</b> a <b>33% false-refusal rate</b> that the grounding metric had been scoring as success, cut it to <b>2%</b> by measuring three prompts head-to-head, and rejected LLM-as-judge after it scored <b>2/4</b> on hand-labelled cases.</li>
+      <li><b>Built</b> a multi-turn pitch simulator with <b>four AI investors</b> who follow up on vague answers, walk out, make negotiable offers and rewrite the pitch in a debrief; <b>deployed live on Cloud Run</b> in 8 hours.</li>
+      <li><b>Kept game rules in code, not the model:</b> one <b>Gemini (Vertex AI)</b> call per turn returns <b>Zod-validated JSON</b>; a model fallback chain ends in scripted content, so no session dead-ends (~3 s/turn live).</li>
+      <li><b>Hardened</b> with prompt-injection defences, rate limiting and keyless IAM auth; <b>201 tests</b> at <b>96% coverage</b> gated in CI.</li>
     </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Python, FAISS, BM25, hybrid retrieval, Flask, Ollama, sentence-transformers, NumPy, Docker, retrieval evaluation (hit@k, MRR)</div>
-  </div>
-
-      <div class="entry">
-    <div class="row">
-      <div class="left"><span class="title"><a href="https://github.com/24f2006988/SpecDrivenDevelopment-project">Reports API — Spec-Driven FastAPI Service</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project</span></div>
-      <div class="right date">2026</div>
-    </div>
-    <ul>
-      <li><b>Implemented</b> a paginated <b>REST</b> endpoint supporting status filtering, ISO date-range bounds, multi-field sorting and offset/limit pagination capped at 200 rows per page, plus a <b>/health</b> liveness probe.</li>
-      <li><b>Separated</b> internal and public <b>Pydantic</b> models so the response schema stays decoupled from storage, and split the query layer from the HTTP layer into dedicated modules.</li>
-      <li><b>Packaged</b> the service as an installable Python module served under <b>Uvicorn</b>, built to a written specification rather than ad-hoc.</li>
-    </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Python, FastAPI, Pydantic, Uvicorn, REST API design, spec-driven development</div>
+    <div class="tech"><b>Technologies / Skills Used:</b> Next.js 16, React 19, TypeScript, Tailwind CSS, Zod, Gemini on Vertex AI, Cloud Run, Secret Manager, Vitest, GitHub Actions, Docker</div>
   </div>
 
   <div class="entry">
     <div class="row">
-      <div class="left"><span class="title">Trekking Management Application</span> &nbsp;|&nbsp; <span class="subtitle">IIT Madras MAD-1 Course Project</span></div>
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/sumigaki">Sumigaki &mdash; Open-Source Math &amp; Code Notebook with On-Demand AI</a></span> &nbsp;|&nbsp; <span class="subtitle">Self Project, open source</span></div>
       <div class="right date">2026</div>
     </div>
     <ul>
-      <li><b>Developed</b> a multi-role Flask web application serving <b>Admin, Staff and Trekker</b> roles across five <b>blueprints</b>, with session-based authentication and <b>scrypt</b> password hashing.</li>
-      <li><b>Modelled</b> the relational schema in <b>SQLAlchemy</b> over SQLite and built server-rendered <b>Jinja2</b> views on a shared Bootstrap 5 layout, with full CRUD, search and filtering across trek, booking and user entities.</li>
+      <li><b>Built</b> a browser notebook with LaTeX math, sandboxed <b>Python (Pyodide)</b> blocks, graphing and stylus sketching, where the AI answers inline only when asked; notes stay <b>plain Markdown</b> (Obsidian-compatible).</li>
+      <li><b>Wrote a lossless Markdown layer</b> (one-paragraph edit &rarr; one-paragraph diff) with atomic saves, and <b>one SSE streaming interface over four AI providers</b>, including local models.</li>
     </ul>
-    <div class="tech"><b>Technologies / Skills Used:</b> Flask, SQLAlchemy, SQLite, Jinja2, Bootstrap 5, Werkzeug, JavaScript</div>
+    <div class="tech"><b>Technologies / Skills Used:</b> TypeScript, Node.js, Vite, CodeMirror 6, MathLive, Pyodide, Server-Sent Events, Docker, GitHub Actions</div>
   </div>
 
-    <h2>Skills</h2>
-  <div class="skillrow"><div class="skilllabel">Programming Languages :</div><div class="skillval">Python, C++, Java, JavaScript, SQL, HTML, CSS</div></div>
-  <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Pydantic, Uvicorn, REST API design, WebSocket &amp; WebRTC streaming, async programming, session auth &amp; RBAC</div></div>
+  <div class="entry">
+    <div class="row">
+      <div class="left"><span class="title"><a href="https://github.com/24f2006988/fjordproof">FjordProof &mdash; Evidence-Backed Company Research Agent</a></span> &nbsp;|&nbsp; <span class="subtitle">Signalpost challenge &middot; Python, crawling, pytest</span></div>
+      <div class="right date">Oct 2026</div>
+    </div>
+    <ul>
+      <li><b>Extended</b> a Norwegian company-profiling agent with website discovery that publishes a site <b>only on hard proof of the exact entity</b> (org. number or registered address on its own pages); no paid API, <b>USD 0/run</b>, <b>106 tests</b>.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skillrow"><div class="skilllabel">Programming Languages :</div><div class="skillval">Python, TypeScript, C++, Java, JavaScript, SQL, HTML, CSS</div></div>
+  <div class="skillrow"><div class="skilllabel">Backend &amp; APIs :</div><div class="skillval">FastAPI, Flask, Next.js, Node.js, Zod, Pydantic, Uvicorn, REST API design, WebSocket &amp; WebRTC streaming, async programming, session auth &amp; RBAC</div></div>
   <div class="skillrow"><div class="skilllabel">Machine Learning :</div><div class="skillval">Scikit-learn, preprocessing pipelines, cross-validation, Logistic &amp; Linear Regression, Random Forest, Gradient Boosting, Isolation Forest, K-Means, PCA; evaluation via F1, ROC-AUC, confusion matrix, MAE, MSE, R²</div></div>
-  <div class="skillrow"><div class="skilllabel">Retrieval &amp; LLM Systems :</div><div class="skillval">RAG pipelines, dense embeddings, BM25, hybrid score fusion, FAISS, chunking strategies, prompt evaluation, Ollama, sentence-transformers; retrieval metrics including hit@k and MRR</div></div>
+  <div class="skillrow"><div class="skilllabel">Retrieval &amp; LLM Systems :</div><div class="skillval">RAG pipelines, dense embeddings, BM25, hybrid score fusion, FAISS, chunking strategies, structured LLM output (Gemini, Vertex AI), prompt-injection defence, prompt evaluation, Ollama, sentence-transformers; retrieval metrics including hit@k and MRR</div></div>
   <div class="skillrow"><div class="skilllabel">Deep Learning :</div><div class="skillval">PyTorch, TorchVision, CNNs, custom Dataset &amp; DataLoader, Ultralytics YOLO training &amp; fine-tuning, TensorRT FP16 export, OpenCV, mAP / size-stratified recall evaluation</div></div>
   <div class="skillrow"><div class="skilllabel">Data &amp; Databases :</div><div class="skillval">PostgreSQL, SQLite, SQLAlchemy, Pandas, NumPy, CSV ETL, data cleaning, feature engineering</div></div>
-  <div class="skillrow"><div class="skilllabel">Visualization &amp; Frontend :</div><div class="skillval">Matplotlib, Chart.js, Jinja2, Bootstrap 5, Tailwind CSS</div></div>
-  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, pytest, GitHub Actions CI, Ruff, Docker, GCP, Power BI, Hugging Face Spaces</div></div>
+  <div class="skillrow"><div class="skilllabel">Tools &amp; Testing :</div><div class="skillval">Git, GitHub, Jupyter, Linux shell, FastAPI TestClient, Requests, HTTPX, BeautifulSoup, argparse, pytest, GitHub Actions CI, Ruff, Docker, GCP, Power BI, Hugging Face Spaces; Matplotlib, Chart.js, Jinja2, Bootstrap 5, Tailwind CSS</div></div>
 
   <h2>Education</h2>
 
@@ -158,9 +159,8 @@
 
   <h2>Certifications</h2>
   <div class="skillrow"><div class="skilllabel">IBM &middot; Coursera :</div><div class="skillval"><b><a href="https://coursera.org/share/7452333decb22f359557335d4036ea99">IBM AI Engineering Professional Certificate</a></b> (13 courses, 2026) &mdash; Machine Learning with Python; Deep Learning with Keras, TensorFlow &amp; PyTorch; Generative AI &amp; LLMs: transformers, fine-tuning, RAG &amp; LangChain; AI Capstone Project</div></div>
-  <div class="skillrow"><div class="skilllabel">Coursera :</div><div class="skillval">Introduction to Data Analytics; Introduction to Software Engineering</div></div>
   <div class="skillrow"><div class="skilllabel">IIT Madras :</div><div class="skillval">Mathematical Foundations of Machine Learning; Deploying ML Apps with GCP; Interactive Dashboards with Power BI; Git &amp; GitHub Hands-on</div></div>
-  <div class="skillrow"><div class="skilllabel">Kaggle :</div><div class="skillval">Intro to Machine Learning; Pandas</div></div>
+  <div class="skillrow"><div class="skilllabel">Coursera &middot; Kaggle :</div><div class="skillval">Introduction to Data Analytics; Introduction to Software Engineering; Kaggle Intro to Machine Learning; Pandas</div></div>
 
 </div>
 </body>
